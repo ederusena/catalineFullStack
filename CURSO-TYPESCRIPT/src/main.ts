@@ -1,20 +1,16 @@
-// Variaveis
-let message: string = 'Hello World'
-let total: number = 0
-let isOpen: boolean = false
+// array
+let items: Array<number> = [1, 2, 3];
 
-
-console.log(message.toUpperCase(), total, isOpen)
-
-// any -  uma variavel que pode receber qualquer tipo de valor
-let teste: any = 'teste'
-
-// void - não retorna nada
-function showInformation(information: string = 'Retorna apenas um texto'): void {
-    console.log(information)
+// enum
+enum Color {
+  Red = "#f00a24",
+  Green = "#0dff00",
+  Blue = "#0d00ff"
 }
 
-// never - nunca retorna nada
-function error(): never {
-  throw new Error('Error')
-}
+let red: Color = Color.Red;
+
+// tuple
+let tuplas: [string, number];
+
+tuplas = ["hello", 10];
