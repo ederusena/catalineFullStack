@@ -1,20 +1,18 @@
-// Variaveis
-let message: string = 'Hello World'
-let total: number = 0
-let isOpen: boolean = false
+// show the user's city
+type UF = 'PE' | 'SP' | 'RJ'
 
+interface User { 
+    name: string, 
+    address: { 
+      city: string,
+      UF: UF
+    }
+    sayHello: () => void
+} // interface
 
-console.log(message.toUpperCase(), total, isOpen)
-
-// any -  uma variavel que pode receber qualquer tipo de valor
-let teste: any = 'teste'
-
-// void - não retorna nada
-function showInformation(information: string = 'Retorna apenas um texto'): void {
-    console.log(information)
+function showCity(user: User) {
+  user.address.UF = 'PE'
+  user.sayHello = () => console.log('Hello')
+  return user.address.city
 }
-
-// never - nunca retorna nada
-function error(): never {
-  throw new Error('Error')
-}
+showCity({ name: 'John', address: { city: 'London', UF: 'RJ' }, sayHello: () => console.log('Hello') }) 
