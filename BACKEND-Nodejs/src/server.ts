@@ -1,4 +1,5 @@
 import express from 'express';
+import { v4 as uuid } from 'uuid';
 
 // Create express server
 const app = express();
@@ -6,6 +7,14 @@ const app = express();
 const port = process.env.PORT || 3000;
 // Create express json
 app.use(express.json());
+
+interface User {	
+  id: string;
+  name: string;
+  email: string;
+}
+
+const user: User[] = []
 
 // Tipos de parâmetros
 // Query params: request.query (Filtros, ordenação, paginação, ...)
@@ -16,27 +25,63 @@ app.use(express.json());
 
 // HTTP Methods (GET, POST, PUT, DELETE)
 app.get('/users', (req, res) => { 
-  const page = req.query;
-
-  return res.json(page);
+  // const page = req.query;
+  return res.json(user);
 });
 
 app.post('/users', (req, res) => { 
-  const body = req.body;
-  console.log(body);
-  
-  return res.json({ message: 'Criando usuário'});
+  // receber os dados do novo usuaário
+  const { name, email } = req.body;
+  // criar um novo usuário
+  const newUser = {
+    id: uuid(),
+    name,
+    email
+  };
+  // adicionar o novo usuário no array
+  user.push(newUser);
+  // retornar o usuário criado
+  return res.json(newUser);
 });
 
 app.put('/users/:id', (req, res) => { 
-  const params = req.params;
-  console.log(params);
+ // receber os dados do usuário
+  const { id } = req.params;
+  const { name, email } = req.body;
 
-  return res.json({ message: 'Atualizando usuário'});
+  // localizar o usuario na base de dados
+  const index = user.findIndex(user => user.id === id);
+
+  // verificar se o usuário existe
+  if (index < 0) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+
+  // alterar os dados do usuário
+  user[index].name = name;
+  user[index].email = email;
+
+  // retornar os dados do usuário alterado
+  return res.json(user[index]);
 });
 
-app.delete('/users', (req, res) => { 
-  return res.json({ message: 'Delete usuário'});
+app.delete('/users/:id', (req, res) => { 
+  // receber os dados do usuário
+  const { id } = req.params;
+
+  // localizar o usuario na base de dados
+  const index = user.findIndex(user => user.id === id);
+
+  // verificar se o usuário existe
+  if (index < 0) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+
+  // deletar o usuário
+  user.splice(index, 1);
+
+  // retornar o usuário deletado
+  return res.status(204).send();
 });
 
 
