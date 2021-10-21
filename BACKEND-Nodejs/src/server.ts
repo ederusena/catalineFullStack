@@ -1,8 +1,12 @@
 import express from 'express';
 import { v4 as uuid } from 'uuid';
+import cors from 'cors'
 
 // Create express server
 const app = express();
+
+app.use(cors({ origin: '*'}))
+
 // Create port
 const port = process.env.PORT || 3000;
 // Create express json
