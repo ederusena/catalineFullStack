@@ -13,7 +13,7 @@ export default defineComponent({
   },
   beforeCreate() {
     // beforeCreate is called before the component is mounted.
-  
+
     // nao tem acesso ao Data aqui porque nao foi montado ainda
     console.log('beforeCreate');
   },
