@@ -15,6 +15,8 @@
         <i class="fab fa-facebook-f"></i>
       </template>
     </ButtonStyled>
+
+    <ButtonStyled text="Botão" @passarinho="action($event)"> </ButtonStyled>
   </div>
 </template>
 
@@ -23,8 +25,13 @@ import { defineComponent } from 'vue'
 import ButtonStyled from './components/ButtonStyled.vue'
 
 export default defineComponent({
+  methods: {
+    action(eventData: string) {
+      alert(eventData)
+    }
+  },
   components: {
     ButtonStyled
-  },
+  }
 })
 </script>
