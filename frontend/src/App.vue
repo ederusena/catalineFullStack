@@ -2,6 +2,13 @@
   <div class="main">
     <div class="container">
       <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
     </div>
   </div>
 </template>
@@ -23,10 +30,9 @@ export default defineComponent({})
 .container {
   margin: 2rem;
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: 200px 200px;
-  grid-row-gap: 1rem;
-  grid-column-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 200px;
+  grid-gap: 1rem;
 }
 
 .item {
