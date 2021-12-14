@@ -1,15 +1,21 @@
 <template>
   <div class="main">
     <div class="container">
-      <header class="header item">
-        <h1>Cabeçalho</h1>
-      </header>
-      <main class="content item">
-        <h1>Conteúdo</h1>
-      </main>
-      <footer class="footer item">
-        <h1>Rodapé</h1>
-      </footer>
+      <div class="item">
+        <h1>1</h1>
+      </div>
+
+      <div class="item">
+        <h1>2</h1>
+      </div>
+
+      <div class="item">
+        <h1>3</h1>
+      </div>
+
+      <div class="item">
+        <h1>4</h1>
+      </div>
     </div>
   </div>
 </template>
@@ -28,25 +34,63 @@ export default defineComponent({})
   font-family: sans-serif;
 }
 
-.header {
-  grid-area: header;
-}
-.content {
-  grid-area: content;
-}
-.footer {
-  grid-area: footer;
-}
-
 .container {
   margin: 2rem;
+  height: 500px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 5px;
+
+  /* grid */
   display: grid;
-  grid:
-    'header' auto
-    'content' 500px
-    'footer' auto
-    / 1fr;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
   grid-gap: 1rem;
+
+  /* alinhamento conteudo horizontal */
+  justify-content: center;
+  /* justify-content: start; */
+  /* justify-content: end; */
+  /* justify-content: space-around; */
+  /* justify-content: space-between; */
+  /* justify-content: space-evenly; */
+
+  /* alinhamento conteudo vertical */
+  align-content: center;
+  /* align-content: stretch; */
+  /* align-content: start; */
+  /* align-content: end; */
+  /* align-content: space-around; */
+  /* align-content: space-between; */
+  /* align-content: space-evenly; */
+
+  /* alinhamento de itens na horizontal */
+  justify-items: center;
+  /* justify-items: start; */
+  /* justify-items: end; */
+  /* justify-items: stretch; */
+  /* justify-items: baseline; */
+
+  /* alinhamento de itens na vertical */
+  align-items: center;
+  /* align-items: start; */
+  /* align-items: end; */
+  /* align-items: stretch; */
+  /* align-items: baseline; */
+
+  /* alinhamento de itens na horizontal */
+  align-self: center;
+  /* align-self: start; */
+  /* align-self: end; */
+  /* align-self: stretch; */
+  /* align-self: baseline; */
+
+  /* alinhamento de itens na vertical */
+  justify-self: center;
+  /* justify-self: start; */
+  /* justify-self: end; */
+  /* justify-self: stretch; */
+  /* justify-self: baseline; */
 }
 
 .item {
