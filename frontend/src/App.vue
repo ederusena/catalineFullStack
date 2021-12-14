@@ -1,7 +1,18 @@
 <template>
   <div class="main">
     <div class="container">
-      <div class="item"></div>
+      <header class="header item">
+        <h1>Cabeçalho</h1>
+      </header>
+      <main class="content item">
+        <h1>Conteúdo</h1>
+      </main>
+      <footer class="footer item">
+        <h1>Rodapé</h1>
+      </footer>
+      <nav class="nav item">
+        <h1>Nav</h1>
+      </nav>
     </div>
   </div>
 </template>
@@ -20,18 +31,33 @@ export default defineComponent({})
   font-family: sans-serif;
 }
 
+.header {
+  grid-area: header;
+}
+.content {
+  grid-area: content;
+}
+.footer {
+  grid-area: footer;
+}
+.nav {
+  grid-area: nav;
+}
+
 .container {
   margin: 2rem;
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: 200px 200px;
-  grid-row-gap: 1rem;
-  grid-column-gap: 1rem;
+  grid-template-columns: 1fr 150px;
+  grid-template-rows: auto 500px auto;
+  grid-template-areas:
+    'header header'
+    'content nav'
+    'footer footer';
+  grid-gap: 1rem;
 }
 
 .item {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
-  border: 1px solid #000;
 }
 </style>
