@@ -10,9 +10,6 @@
       <footer class="footer item">
         <h1>Rodapé</h1>
       </footer>
-      <nav class="nav item">
-        <h1>Nav</h1>
-      </nav>
     </div>
   </div>
 </template>
@@ -40,19 +37,15 @@ export default defineComponent({})
 .footer {
   grid-area: footer;
 }
-.nav {
-  grid-area: nav;
-}
 
 .container {
   margin: 2rem;
   display: grid;
-  grid-template-columns: 1fr 150px;
-  grid-template-rows: auto 500px auto;
-  grid-template-areas:
-    'header header'
-    'content nav'
-    'footer footer';
+  grid:
+    'header' auto
+    'content' 500px
+    'footer' auto
+    / 1fr;
   grid-gap: 1rem;
 }
 
