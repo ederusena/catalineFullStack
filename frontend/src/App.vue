@@ -48,7 +48,7 @@ export default defineComponent({})
   grid-gap: 1rem;
 
   /* alinhamento conteudo horizontal */
-  justify-content: center;
+  justify-content: stretch;
   /* justify-content: start; */
   /* justify-content: end; */
   /* justify-content: space-around; */
@@ -56,7 +56,7 @@ export default defineComponent({})
   /* justify-content: space-evenly; */
 
   /* alinhamento conteudo vertical */
-  align-content: center;
+  align-content: stretch;
   /* align-content: stretch; */
   /* align-content: start; */
   /* align-content: end; */
@@ -65,14 +65,14 @@ export default defineComponent({})
   /* align-content: space-evenly; */
 
   /* alinhamento de itens na horizontal */
-  justify-items: center;
+  justify-items: stretch;
   /* justify-items: start; */
   /* justify-items: end; */
   /* justify-items: stretch; */
   /* justify-items: baseline; */
 
   /* alinhamento de itens na vertical */
-  align-items: center;
+  align-items: stretch;
   /* align-items: start; */
   /* align-items: end; */
   /* align-items: stretch; */
@@ -81,7 +81,7 @@ export default defineComponent({})
 
 .item:nth-child(1) {
   /* alinhamento de itens na vertical */
-  justify-self: end;
+  justify-self: center;
   /* justify-self: start; */
   /* justify-self: end; */
   /* justify-self: stretch; */
