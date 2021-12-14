@@ -77,22 +77,25 @@ export default defineComponent({})
   /* align-items: end; */
   /* align-items: stretch; */
   /* align-items: baseline; */
+}
 
-  /* alinhamento de itens na horizontal */
-  align-self: center;
-  /* align-self: start; */
-  /* align-self: end; */
-  /* align-self: stretch; */
-  /* align-self: baseline; */
-
+.item:nth-child(1) {
   /* alinhamento de itens na vertical */
-  justify-self: center;
+  justify-self: end;
   /* justify-self: start; */
   /* justify-self: end; */
   /* justify-self: stretch; */
   /* justify-self: baseline; */
 }
 
+.item:nth-child(2) {
+  /* alinhamento de itens na horizontal */
+  align-self: center;
+  /* align-self: start; */
+  /* align-self: end; */
+  /* align-self: stretch; */
+  /* align-self: baseline; */
+}
 .item {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
