@@ -2,16 +2,6 @@
   <div class="main">
     <div class="container">
       <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-    </div>
-
-    <div class="container2">
-      <div class="item2"></div>
-      <div class="item2"></div>
-      <div class="item2"></div>
-      <div class="item2"></div>
     </div>
   </div>
 </template>
@@ -23,18 +13,6 @@ export default defineComponent({})
 </script>
 
 <style>
-.container2 {
-  grid-gap: 1rem;
-  display: grid;
-  grid-auto-flow: column;
-}
-
-.item2 {
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 5px;
-  height: 30px;
-}
-
 .main {
   background: #3494e6;
   height: 100vh;
@@ -49,7 +27,6 @@ export default defineComponent({})
   grid-template-rows: 200px 200px;
   grid-row-gap: 1rem;
   grid-column-gap: 1rem;
-  /* grid-gap: 1rem; */
 }
 
 .item {
