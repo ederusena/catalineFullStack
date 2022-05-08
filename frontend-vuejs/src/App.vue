@@ -3,10 +3,10 @@
     <div class="container">
       <section>
         <h5 class="title">Novo usuário</h5>
-        <form v-on:click.prevent='createUsers'>
-          <input type="text" placeholder="Nome" v-model="form.name"/>
-          <input type="text" placeholder="E-mail" v-model="form.email"/>
-          <button type="submit">Adicionar</button>
+        <form>
+          <input type="text" placeholder="Nome" v-model="form.name" />
+          <input type="text" placeholder="E-mail" v-model="form.email" />
+          <button v-on:click.prevent="createUsers" type="submit">Adicionar</button>
         </form>
       </section>
       <section>
@@ -15,7 +15,7 @@
           <li v-for="user in users" :key="user.id">
             <p>{{ user.name }}</p>
             <small>{{ user.email }}</small>
-            <a href="#" class="destroy" @click='deleteUsers(user.id)'></a>
+            <a href="#" class="destroy" @click="deleteUsers(user.id)"></a>
           </li>
         </ul>
       </section>
@@ -31,11 +31,11 @@ import { User } from './models'
 export default defineComponent({
   data() {
     return {
-      users: [] as User[],
+      users: [] as any,
       form: {
         name: '',
-        email: ''
-      }
+        email: '',
+      },
     }
   },
   created() {
@@ -52,10 +52,15 @@ export default defineComponent({
     },
     async createUsers() {
       try {
-        const { data } = await axios.post('/users', this.form)
-        this.users.push(data)
-        this.form.name = ''
-        this.form.email = ''
+        console.log(this.form)
+        if (this.form.name && this.form.email) {
+          const { data } = await axios.post('/users', this.form)
+          this.users.push(data)
+          this.form.name = ''
+          this.form.email = ''
+        } else {
+          alert('Preencha os campos')
+        }
       } catch (error) {
         console.warn(error)
       }
@@ -63,8 +68,9 @@ export default defineComponent({
     async deleteUsers(id: User['id']) {
       try {
         await axios.delete(`/users/${id}`)
-        const userIndex = this.users.findIndex((user) =>user.id ===id)
-        this.users(userIndex,1)
+        const userIndex = this.users.findIndex((user: any) => user.id === id)
+        this.users(userIndex, 1)
+        window.location.reload();
       } catch (error) {
         console.warn(error)
       }

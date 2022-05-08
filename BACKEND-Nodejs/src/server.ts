@@ -5,14 +5,14 @@ import cors from 'cors'
 // Create express server
 const app = express();
 
-app.use(cors({ origin: '*'}))
+app.use(cors({ origin: '*' }))
 
 // Create port
 const port = process.env.PORT || 3000;
 // Create express json
 app.use(express.json());
 
-interface User {	
+interface User {
   id: string;
   name: string;
   email: string;
@@ -28,12 +28,12 @@ const user: User[] = []
 // Body: request.body (Dados para criação ou alteração de um registro)
 
 // HTTP Methods (GET, POST, PUT, DELETE)
-app.get('/users', (req, res) => { 
+app.get('/users', (_req, res) => {
   // const page = req.query;
   return res.json(user);
 });
 
-app.post('/users', (req, res) => { 
+app.post('/users', (req, res) => {
   // receber os dados do novo usuaário
   const { name, email } = req.body;
   // criar um novo usuário
@@ -48,8 +48,8 @@ app.post('/users', (req, res) => {
   return res.json(newUser);
 });
 
-app.put('/users/:id', (req, res) => { 
- // receber os dados do usuário
+app.put('/users/:id', (req, res) => {
+  // receber os dados do usuário
   const { id } = req.params;
   const { name, email } = req.body;
 
@@ -69,7 +69,7 @@ app.put('/users/:id', (req, res) => {
   return res.json(user[index]);
 });
 
-app.delete('/users/:id', (req, res) => { 
+app.delete('/users/:id', (req, res) => {
   // receber os dados do usuário
   const { id } = req.params;
 
@@ -90,6 +90,6 @@ app.delete('/users/:id', (req, res) => {
 
 
 app.listen(port, () => {
-    console.log('Server started on port ' + port);
+  console.log('Server started on port ' + port);
 }
 );
